@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ff3333;
 }
 
 .App-logo {
@@ -29,4 +32,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.song-lyric-container {
+  height: 100vh;
+  position: relative;
+  margin-top: -50px;
+  background-color: #ff3333;
+}
+
+.song-lyric {
+  font-size: 5vw;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
 }

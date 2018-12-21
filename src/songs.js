@@ -1,4 +1,4 @@
-songs = {
+const songs = {
     "songs": [
         {
             "name": "Jingle Bells",
@@ -14,28 +14,28 @@ songs = {
                 "Oh {12} {13}, {12} {13}",
                 "{12} all the way",
                 "Oh what {9} it is to {10}",
-                "A {2} horse open {3}",
+                "A {2} {3} open sleigh",
                 "{12} {13}, {12} {13}",
                 "{12} all the way",
                 "Oh what {9} it is to {10}",
-                "In a {2} horse open {3}"
+                "In a {2} {3} open sleigh"
             ],
-            "placeholders": [
-                {"0": "Verb (-ing) [2]"},
-                {"1": "Noun"},
-                {"2": "Number"},
-                {"3": "Animal"},
-                {"4": "Noun (plural) [1]"},
-                {"5": "Verb (-ing)"},
-                {"6": "Noun (plural)"},
-                {"7": "Noun"},
-                {"8": "Noun"},
-                {"9": "Adjective"},
-                {"10": "Verb"},
-                {"11": "Verb (-ing)"},
-                {"12": "Verb [2]"},
-                {"13": "Noun (plural) [1]"}
-            ]
+            "placeholders": {
+                "0": "Verb (-ing) [1-2]",
+                "1": "Noun",
+                "2": "Number",
+                "3": "Animal",
+                "4": "Noun (plural) [1]",
+                "5": "Verb (-ing)",
+                "6": "Noun (plural)",
+                "7": "Noun",
+                "8": "Noun (plural)",
+                "9": "Adjective",
+                "10": "Verb",
+                "11": "Verb (-ing)",
+                "12": "Verb [2]",
+                "13": "Noun (plural) [1]"
+            }
         },
         {
             "name": "____ The ____ ____ Reindeer",
@@ -47,4 +47,4 @@ songs = {
     ]
 }
 
-module.exports = songs;
+export default songs.songs;
