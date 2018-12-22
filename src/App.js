@@ -22,20 +22,20 @@ class App extends Component {
     compiledLyrics: []
   }
   
-  loadSongs() {
+  loadSongs(index) {
     this.setState({
       songs: songs.map(song => song.name),
-      selectedSong: 0,
-      inputs: new Array(Object.keys(songs[0].placeholders).length).fill(""),
-      placeholders: Object.values(songs[0].placeholders),
+      selectedSong: index,
+      inputs: new Array(Object.keys(songs[index].placeholders).length).fill(""),
+      placeholders: Object.values(songs[index].placeholders),
       songMode: false,
       lyricLine: 0,
-      lyrics: songs[0].lyrics,
+      lyrics: songs[index].lyrics,
     });
   }
 
   componentDidMount() {
-    this.loadSongs();
+    this.loadSongs(0);
     this.addLyricListener();
   }
 
@@ -85,7 +85,7 @@ class App extends Component {
   }
 
   /**
-   * Go to next lyric. Exit song mode after final line
+   * Go to previous lyric. Stop at line 1
    */
   rewindLyrics() {
     if (this.state.lyricLine - 1 < 0) {
@@ -123,9 +123,18 @@ class App extends Component {
     return outString;
   }
 
+  onSelectSong(value) {
+    this.loadSongs(value);
+  }
+
   render() {
     const editModeContent = (
       <div className="inputs-container">
+        <select className="song-select" onChange={(event) => this.onSelectSong(event.target.value)} defaultValue={this.state.selectedSong}>
+          {this.state.songs.map((song, index) => (
+            <option value={index.toString()}>{song}</option>
+          ))}
+        </select>
         <Inputs 
               placeholders={this.state.placeholders} 
               inputs={this.state.inputs}

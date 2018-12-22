@@ -6,7 +6,7 @@ const Inputs = (props) => {
         <div className="inputs">
             {props.placeholders.map((placeholder, index) => 
                     <div className="input" key={index}>
-                        <label className="input-label">{placeholder}:</label>
+                        <label className="input-label">{index}:&nbsp;{placeholder}:</label>
                         <input
                             className="input-input" 
                             value={props.inputs[index]} 
